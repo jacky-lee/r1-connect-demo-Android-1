@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">R1MobileConnect</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_properties_settings">PropertiesSettings</string>
+    <string name="title_activity_events">EventsActivity</string>
+    <string name="title_activity_property">PropertyActivity</string>
+    <string name="title_activity_send_event">SendEventActivity</string>
+    <string name="title_activity_emit_event">EmitEventActivity</string>
+
+</resources>

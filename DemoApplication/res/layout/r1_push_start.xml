@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sender ID" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/sender_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sender ID" >
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Application ID" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/app_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Application ID" >
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Client Key" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/app_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Client Key" >
+        </EditText>
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Start" >
+        </Button>
+    </LinearLayout>
+
+</ScrollView>
