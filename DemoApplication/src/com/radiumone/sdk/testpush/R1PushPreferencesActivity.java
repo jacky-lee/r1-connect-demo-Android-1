@@ -25,8 +25,6 @@ public class R1PushPreferencesActivity extends FragmentActivity implements View.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.r1_push_prefs);
 
-        findViewById(R.id.send).setOnClickListener(this);
-
         findViewById(R.id.add_tag).setOnClickListener(this);
 
         findViewById(R.id.change_id).setOnClickListener(this);
@@ -100,9 +98,7 @@ public class R1PushPreferencesActivity extends FragmentActivity implements View.
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if ( id == R.id.send ){
-            R1Push.getInstance(this).sendParameters(this);
-        } else if ( id == R.id.change_id ){
+        if ( id == R.id.change_id ){
             ChangeUserIdDialogFragment changeUserIdDialogFragment = ChangeUserIdDialogFragment.newInstance(this);
             changeUserIdDialogFragment.show(getSupportFragmentManager(), "user_id");
         } else if ( id == R.id.add_tag ){

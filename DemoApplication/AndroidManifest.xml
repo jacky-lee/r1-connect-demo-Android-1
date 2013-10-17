@@ -5,7 +5,7 @@
     android:versionName="2.0" >
 
     <uses-sdk
-        android:minSdkVersion="7"
+        android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
     <application android:name="com.radiumone.sdk.testpush.R1sdkApplication"
@@ -77,7 +77,7 @@
         </receiver>
 
 
-        <service android:name="com.radiumone.emitter.push.R1SDKService"/>
+        <service android:name="com.radiumone.emitter.push.R1ConnectService"/>
         <service android:name="com.radiumone.emitter.location.LocationService"/>
 
     </application>

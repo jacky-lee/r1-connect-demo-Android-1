@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.radiumone.emitter.R1Emitter;
 import com.radiumone.sdk.testemitter.EmitterTestStartActivity;
 import com.radiumone.sdk.testpush.R1PushTest;
 

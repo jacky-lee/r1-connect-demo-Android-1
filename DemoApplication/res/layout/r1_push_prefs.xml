@@ -9,30 +9,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/send"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="2"
-                android:text="Send" >
-            </Button>
-
-            <Button
-                android:id="@+id/settings"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:text="Settings" >
-            </Button>
-        </LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Settings" >
+        </Button>
 
         <LinearLayout
             android:layout_width="match_parent"
