@@ -36,7 +36,7 @@
             android:label="@string/title_activity_emit_event" >
         </activity>
         <activity android:name=".testemitter.LineActivity"/>
-        <activity android:name="testemitter.SocialPermissionActivity"/>
+        <activity android:name=".testemitter.SocialPermissionActivity"/>
 
         <activity android:name=".testpush.R1PushPreferencesActivity"
                   android:launchMode="singleTop"/>
