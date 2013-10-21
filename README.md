@@ -13,9 +13,12 @@ Once you have downloaded the R1 Connect Library from this repo you can add it to
 
 ##Configuring your App
 
+![Configure image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image1.png)
+
 
 Next, to configure how the library will be used in your project you will need to create a file called **r1connect.properties** in the folder called “assets”.
 
+![Parameters image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image2.png)
 ￼
 As you can see in the example above, it will contain the following:
 
@@ -45,20 +48,23 @@ To make sure push notifications work correctly, please follow these steps:
 
 2. To enable an action such as opening the app when a notification is clicked, create a class that inherits from BroadcastReceiver and add the necessary logic to it. If you are okay with the default, which closes the notification upon pressing it, then no further coding is required.
 
+![Broadcast Receiver image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image3.png)
+		
 3. The class referred to in the first item is used in the following way:
 
 		R1PushConfig.getInstance(this).setNotificationIconResourceId(R.drawable.ic_launcher);
 		//The above line is necessary for creating an icon in the notification bar when the device receives the notification
 
-		
 		R1Push.getInstance(this).setIntentReceiver(TestPushReceiver.class);
 		//This line tells the library that the class created in step 2 will be processing the push notification
 		//In TestPushReceiver (see step 2) we want to open ShowNotificationActivity when notification is clicked
 
-
+![Application image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image4.png)
 
 4. To make sure the library works correctly it is also necessary to include the following in onStart and onStop methods in all your application Activities:
 
+![OnStart image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image5.png)
+![OnStop image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image6.png)
 ￼
 
 In the manifest you need to create the following:
