@@ -111,8 +111,6 @@ In the manifest you need to create the following:
             </intent-filter>
         </receiver>
 
-
-
     </application>
 
 
@@ -125,7 +123,6 @@ In the manifest you need to create the following:
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-
 	//Permission to get location when using the network
 
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -133,7 +130,6 @@ In the manifest you need to create the following:
 	//Permission to get location when using GPS
 
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
 
 	<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
