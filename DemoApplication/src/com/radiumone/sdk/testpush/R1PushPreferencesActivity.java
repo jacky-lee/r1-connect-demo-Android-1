@@ -20,6 +20,7 @@ public class R1PushPreferencesActivity extends FragmentActivity implements View.
 
     public static final String PREFS = "r1_mc_shared_prefs";
     public static final String AUTO_START = "auto_start";
+    private static final String USER_ID = "user_id";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +43,12 @@ public class R1PushPreferencesActivity extends FragmentActivity implements View.
         boolean backgroundLocation = LocationPreferences.getLocationPreferences(this).isBackgroundEnabled();
         backgroundLocationCompound.setChecked(backgroundLocation);
 
-        String userId = R1PushPreferences.getInstance(this).getUserId();
-        if ( !TextUtils.isEmpty(userId)){
+        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+        String userAppId = prefs.getString(USER_ID, null);
+        R1Emitter.getInstance().setApplicationUserId(userAppId);
+        if ( !TextUtils.isEmpty(userAppId)){
             TextView userIdTextView = (TextView)findViewById(R.id.user_id);
-            userIdTextView.setText(userId);
+            userIdTextView.setText(userAppId);
         }
     }
 
@@ -158,7 +161,11 @@ public class R1PushPreferencesActivity extends FragmentActivity implements View.
     @Override
     public void onUserIdChanged(final String userId) {
         if (!TextUtils.isEmpty(userId)){
-            R1PushPreferences.getInstance(this).setUserId(userId);
+        	R1Emitter.getInstance().setApplicationUserId(userId);
+            SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString(USER_ID, userId);
+            editor.commit();
             runOnUiThread( new Runnable() {
                 @Override
                 public void run() {
