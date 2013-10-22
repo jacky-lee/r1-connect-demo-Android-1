@@ -59,7 +59,8 @@ To make sure push notifications work correctly, please follow these steps:
 		//This line tells the library that the class created in step 2 will be processing the push notification
 		//In TestPushReceiver (see step 2) we want to open ShowNotificationActivity when notification is clicked
 		
-		R1Emitter.getInstance().connect(this);		//To make sure the library works correctly it is necessary this line in onCreate() method
+		R1Emitter.getInstance().connect(this);
+		//To make sure the library works correctly it is necessary this line in onCreate() method
 
 ![Application image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image4.png)
 
@@ -220,8 +221,10 @@ R1 Connect SDK will automatically capture some generic events, but in order to g
 Some events are emitted automatically when the OS changes the state of the application, therefore, they do not require any additional code to be written in the app in order to work out of the box:
 
 ***Launch***- emitted when the app starts
+
 ***First Launch***- emitted when the app starts for the first time
-***First Launch*** After Update- emitted when the app starts for the first time after a version upgrade
+
+***First Launch After Update*** - emitted when the app starts for the first time after a version upgrade
  
 
 ###Pre-Defined Events
