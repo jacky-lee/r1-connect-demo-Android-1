@@ -52,12 +52,14 @@ To make sure push notifications work correctly, please follow these steps:
 		
 3. The class referred to in the first item is used in the following way:
 
-		R1PushConfig.getInstance(this).setNotificationIconResourceId(R.drawable.ic_launcher);
+		R1Emitter.getInstance().setNotificationIconResourceId(this, R.drawable.ic_launcher);
 		//The above line is necessary for creating an icon in the notification bar when the device receives the notification
 
-		R1Push.getInstance(this).setIntentReceiver(TestPushReceiver.class);
+		R1Emitter.getInstance().setIntentReceiver(this, TestPushReceiver.class);
 		//This line tells the library that the class created in step 2 will be processing the push notification
 		//In TestPushReceiver (see step 2) we want to open ShowNotificationActivity when notification is clicked
+		
+		R1Emitter.getInstance().connect(this);		//To make sure the library works correctly it is necessary this line in onCreate() method
 
 ![Application image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image4.png)
 
