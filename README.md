@@ -189,7 +189,7 @@ The current application screen set for this emitter.
 *sessionStart*
 
 
-If true, indicates the start of a new session. Note that when a emitter is first instantiated, this is initialized to true. To prevent this default behavior, set sessionTimeout to negative value
+If true, indicates the start of a new session. Note that when a emitter is first instantiated, this is initialized to true. To prevent this default behavior, set sessionTimeout to negative value.
  By itself, setting this does not send any data. If this is true, when the next emitter call is made, a parameter will be added to the resulting emitter information indicating that it is the start of a session, and this flag will be cleared.
 		
 	R1Emitter.getInstance().setSessionStarted(true);
@@ -310,6 +310,7 @@ Tracks an application upgrade from a trial version to a full version
 
 
 **Screen View**
+
 Basically, a page view, it provides info about that screen
 
 	R1Emitter.getInstance().emitAppScreen("title","description","http://	www.example.com/path”,”example.com”,”path”,parameters);
