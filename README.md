@@ -52,7 +52,7 @@ To make sure push notifications work correctly, please follow these steps:
 
 2. To enable an action such as opening the app when a notification is clicked, create a class that inherits from BroadcastReceiver and add the necessary logic to it. If you are okay with the default, which closes the notification upon pressing it, then no further coding is required.
 
-![Broadcast Receiver image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image3.png)
+	![Broadcast Receiver image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image3.png)
 		
 3. The class referred to in the first item is used in the following way:
 
@@ -63,15 +63,23 @@ To make sure push notifications work correctly, please follow these steps:
 		//This line tells the library that the class created in step 2 will be processing the push notification
 		//In TestPushReceiver (see step 2) we want to open ShowNotificationActivity when notification is clicked
 		
-		R1Emitter.getInstance().connect(this);
-		//To make sure the library works correctly it is necessary this line in onCreate() method
+		R1Emitter.getInstance().connect(this); //To make sure the library works correctly it is necessary this line in onCreate() method
 
-![Application image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image4.png)
+	![Application image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image4.png)
+	
+	If you want to create your own notifications you have to create a class that implements R1NotificationBuilder interface and write your notification builder like in the example below:
+	
+	![Custom notification image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image7.png)
+	
+	After that add this line just before R1Emitter.getInstance().connect(this) in your application class:
+	
+		R1Emitter.getInstance().setNotificationBuilder( new CustomNotificationBuilder()); 
+	
 
 4. To make sure the library works correctly it is also necessary to include the following in onStart and onStop methods in all your application Activities:
 
-![OnStart image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image5.png)
-![OnStop image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image6.png)
+	![OnStart image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image5.png)
+	![OnStop image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image6.png)
 ￼
 
 In the manifest you need to create the following:
