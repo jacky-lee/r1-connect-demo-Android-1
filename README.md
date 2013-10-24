@@ -32,6 +32,8 @@ As you can see in the example above, it will contain the following:
 
 	enable_push – this defaults to “true” and it will enable push notifications or disable push notifications after you start your application. You change these settings later in your code.
 
+	disable_sdk_location - when set to “true” it disables the use of sdk tracking location. It is useful if you want to use your own tracking location. You can pass a location object like so: R1Emitter.getInstance().trackLocation(location);
+	
 	enable_ gps – when set to “true” it enables the use of device GPS to get location (only if GPS is enabled in device settings), when “false” only the network is used
 
 	location_update_time – this is the timeout between location updates
