@@ -1,9 +1,11 @@
 ##R1 Connect Library for Android
 
-**Overview**
+##Overview##
 
 
 Downloading LibR1Connect.jar allows you to begin the integration process of adding R1 Connect services to your Android app. All mobile and tablet devices running Android 2.2. and above are supported.
+This integration doc assumes you have already set up Google Play Services in your application project. This is needed to use Google Cloud Messaging (GCM), the notification gateway R1 Connect will use for your Android app. Also you will need to have created the app you will be using in R1 Connect.
+In order to use R1 Connect with your application you will need an project number (sender ID) and API key from Google. Please visit “GCM Getting Started” [here](http://developer.android.com/intl/ru/google/gcm/gs.html) and create google project and API key.
 
 ##Setup
 
