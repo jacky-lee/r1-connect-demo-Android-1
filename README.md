@@ -103,6 +103,7 @@ In the manifest you need to create the following:
                   android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- name must be your applicationPackage -->
                 <category android:name="com.radiumone.sdk" />
             </intent-filter>
         </receiver>
