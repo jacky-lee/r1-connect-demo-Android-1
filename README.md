@@ -30,8 +30,6 @@ As you can see in the example above, it will contain the following:
 
 	client_key – You will need to enter the App Key you received when creating your app on R1 Connect (it ‘s found under Dev Tools -> Keys & Secrets)
 
-	only_analytics – when set to “true” it saves events. This means that “push notifications” will be disabled, pushEnable() and pushDisable() methods in your code will have no effect, but all events will still be saved for analytics.
-
 	enable_push – this defaults to “true” and it will enable push notifications or disable push notifications after you start your application. You change these settings later in your code.
 
 	disable_sdk_location - when set to “true” it disables the use of sdk tracking location. It is useful if you want to use your own tracking location. You can pass a location object like so: R1Emitter.getInstance().trackLocation(location);
