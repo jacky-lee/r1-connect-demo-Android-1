@@ -221,6 +221,27 @@ By default, this is 30 seconds.
 Optional current user identifier.
  
 	R1Emitter.getInstance().setApplicationUserId("12345");
+	
+###Push Tags
+
+You can specify Tags for *R1 Connect SDK* to send *Push Notifications* for certain groups of users.
+
+The maximum length of a Tag is 128 characters.
+
+*R1 Connect SDK* saves Tags. You do not have to add Tags every time the application is launched.
+
+***Add a new Tag***
+
+	R1Push.getInstance(context).addTag("tag");
+	
+	
+***Remove existing Tag***
+
+	R1Push.getInstance(context).removeTag("tag");	
+	
+***Get all Tags***
+	
+	String[] allTags = R1Push.getInstance(context).getTags(context);	
 
 
 ###Emitter Events
