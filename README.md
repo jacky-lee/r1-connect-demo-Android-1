@@ -20,7 +20,8 @@ Once you have downloaded the R1 Connect Library from this repo you can add it to
 
 Next, to configure how the library will be used in your project you will need to create a file called **r1connect.properties** in the folder called “assets”.
 
-![Parameters image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image2.png)
+<img src="https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image2.png" alt="Parameters image" style="width: 1100px; height: 688px;"/>
+
 ￼
 As you can see in the example above, it will contain the following:
 
