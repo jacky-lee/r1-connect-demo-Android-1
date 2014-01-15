@@ -1,19 +1,19 @@
-##R1 Connect Library for Android
+## R1 Connect Library for Android
 
-##Overview##
+## Overview ##
 
 
 Downloading LibR1Connect.jar allows you to begin the integration process of adding R1 Connect services to your Android app. All mobile and tablet devices running Android 2.2. and above are supported.
 This integration doc assumes you have already set up Google Play Services in your application project. This is needed to use Google Cloud Messaging (GCM), the notification gateway R1 Connect will use for your Android app. Also you will need to have created the app you will be using in R1 Connect.
 In order to use R1 Connect with your application you will need an project number (sender ID) and API key from Google. Please visit “GCM Getting Started” [here](http://developer.android.com/intl/ru/google/gcm/gs.html) and create google project and API key.
 
-##Setup
+## Setup
 
 The following steps will explain how to integrate with R1 Connect to enable both event tracking and push notifications. You have the option to use the R1 Connect Demo as a sample app project to begin with or you can use your own app project. 
 
 Once you have downloaded the R1 Connect Library from this repo you can add it to your project in the libs directory. 
 
-##Configuring your App
+## Configuring your App
 
 ![Configure image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image1.png)
 
@@ -42,7 +42,7 @@ As you can see in the example above, it will contain the following:
 
 	location_in_background – you can set whether or not the location is allowed to be sent while the app is in the background
 
-###Enabling Push Notifications and Handling Push Events
+### Enabling Push Notifications and Handling Push Events
 
 To make sure push notifications work correctly, please follow these steps:
 
@@ -155,12 +155,12 @@ In the manifest you need to create the following:
     <uses-permission android:name="com.radiumone.sdk.permission.C2D_MESSAGE"></uses-permission>
 
 
-##Emitter & Push Parameters
+## Emitter & Push Parameters
 
 
 The following is a list of configuration parameters for the R1 Connect SDK, most of these contain values that are sent to the tracking server to help identify your app on our platform and to provide analytics on sessions and location.
 
-###Configuration Parameters
+### Configuration Parameters
 
 *appName*
 
@@ -222,7 +222,7 @@ Optional current user identifier.
  
 	R1Emitter.getInstance().setApplicationUserId("12345");
 	
-###Push Tags
+### Push Tags
 
 You can specify Tags for *R1 Connect SDK* to send *Push Notifications* for certain groups of users.
 
@@ -244,7 +244,7 @@ The maximum length of a Tag is 128 characters.
 	String[] allTags = R1Push.getInstance(context).getTags(context);	
 
 
-###Emitter Events
+### Emitter Events
 
 R1 Connect SDK will automatically capture some generic events, but in order to get the most meaningful data on how users interact with your app the SDK also offers pre-built user-defined events for popular user actions as well as the ability to create your own custom events.
 
@@ -259,7 +259,7 @@ Some events are emitted automatically when the OS changes the state of the appli
 ***First Launch After Update*** - emitted when the app starts for the first time after a version upgrade
  
 
-###Pre-Defined Events
+### Pre-Defined Events
 
 
 Pre-Defined Events are also helpful in measuring certain metrics within the apps and do not require further developer input to function. These particular events below are used to help measure app open events and track Sessions.
@@ -348,7 +348,7 @@ Basically, a page view, it provides info about that screen
 	R1Emitter.getInstance().emitAppScreen("title","description","http://	www.example.com/path”,”example.com”,”path”,parameters);
 
 
-###E-Commerce Events
+### E-Commerce Events
 
 
 **Transaction**
