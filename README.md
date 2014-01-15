@@ -24,23 +24,15 @@ Next, to configure how the library will be used in your project you will need to
 ￼
 As you can see in the example above, it will contain the following:
 
-	sender_id – You will need to enter the project number you received when creating the Google API project
-
-	app_id – You will need to enter the App ID you received when creating your app on R1 Connect (it’s found under Dev Tools -> Keys & Secrets)
-
-	client_key – You will need to enter the App Key you received when creating your app on R1 Connect (it ‘s found under Dev Tools -> Keys & Secrets)
-
-	enable_push – this defaults to “true” and it will enable push notifications or disable push notifications after you start your application. You change these settings later in your code.
-
-	disable_sdk_location - when set to “true” it disables the use of sdk tracking location. It is useful if you want to use your own tracking location. You can pass a location object like so: R1Emitter.getInstance().trackLocation(location);
-	
-	enable_ gps – when set to “true” it enables the use of device GPS to get location (only if GPS is enabled in device settings), when “false” only the network is used
-
-	location_update_time – this is the timeout between location updates
-
-	location_update_distance – you can set the change in distance for location updates
-
-	location_in_background – you can set whether or not the location is allowed to be sent while the app is in the background
+- sender_id – You will need to enter the project number you received when creating the Google API project
+ - app_id – You will need to enter the App ID you received when creating your app on R1 Connect (it’s found under Dev Tools -> Keys & Secrets)
+ - client_key – You will need to enter the App Key you received when creating your app on R1 Connect (it ‘s found under Dev Tools -> Keys & Secrets)
+ - enable_push – this defaults to “true” and it will enable push notifications or disable push notifications after you start your application. You change these settings later in your code.
+ - disable_sdk_location - when set to “true” it disables the use of sdk tracking location. It is useful if you want to use your own tracking location. You can pass a location object like so: R1Emitter.getInstance().trackLocation(location);
+ - enable_ gps – when set to “true” it enables the use of device GPS to get location (only if GPS is enabled in device settings), when “false” only the network is used
+ - location_update_time – this is the timeout between location updates
+ - location_update_distance – you can set the change in distance for location updates
+ - location_in_background – you can set whether or not the location is allowed to be sent while the app is in the background
 
 ### Enabling Push Notifications and Handling Push Events
 
@@ -54,16 +46,18 @@ To make sure push notifications work correctly, please follow these steps:
 		
 3. The class referred to in the first item is used in the following way:
 
-		R1Emitter.getInstance().setNotificationIconResourceId(this, R.drawable.ic_launcher);
-		//The above line is necessary for creating an icon in the notification bar when the device receives the notification
+````
+    R1Emitter.getInstance().setNotificationIconResourceId(this, R.drawable.ic_launcher);
+    //The above line is necessary for creating an icon in the notification bar when the device receives the notification
 
-		R1Emitter.getInstance().setIntentReceiver(this, TestPushReceiver.class);
-		//This line tells the library that the class created in step 2 will be processing the push notification
-		//In TestPushReceiver (see step 2) we want to open ShowNotificationActivity when notification is clicked
+    R1Emitter.getInstance().setIntentReceiver(this, TestPushReceiver.class);
+    //This line tells the library that the class created in step 2 will be processing the push notification
+    //In TestPushReceiver (see step 2) we want to open ShowNotificationActivity when notification is clicked
 		
-		R1Emitter.getInstance().connect(this); //To make sure the library works correctly it is necessary this line in onCreate() method
+    R1Emitter.getInstance().connect(this); //To make sure the library works correctly it is necessary this line in onCreate() method
 
-	![Application image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image4.png)
+    ![Application image](https://raw.github.com/radiumone/r1-connect-demo-Android/master/readme-images/image4.png)
+````
 	
 	If you want to create your own notifications you have to create a class that implements R1NotificationBuilder interface and write your notification builder like in the example below:
 	
@@ -71,7 +65,7 @@ To make sure push notifications work correctly, please follow these steps:
 	
 	After that add this line just before R1Emitter.getInstance().connect(this) in your application class:
 	
-		R1Emitter.getInstance().setNotificationBuilder( new CustomNotificationBuilder()); 
+    R1Emitter.getInstance().setNotificationBuilder( new CustomNotificationBuilder());
 	
 
 4. To make sure the library works correctly it is also necessary to include the following in onStart and onStop methods in all your application Activities:
@@ -82,9 +76,10 @@ To make sure push notifications work correctly, please follow these steps:
 
 In the manifest you need to create the following:
 
-	<!-- android:name of application tag must be full application name that was created in first step.-->
+````
+    <!-- android:name of application tag must be full application name that was created in first step.-->
 
-	<application
+    <application
         android:name="com.example.r1connecttestapplication.TestApplication"
         android:allowBackup="true"
 
@@ -153,7 +148,7 @@ In the manifest you need to create the following:
 
     <permission android:name="com.radiumone.sdk.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
     <uses-permission android:name="com.radiumone.sdk.permission.C2D_MESSAGE"></uses-permission>
-
+````
 
 ## Emitter & Push Parameters
 
@@ -166,7 +161,7 @@ The following is a list of configuration parameters for the R1 Connect SDK, most
 
 The application name associated with emitter. By default, this property is populated with the package name of the application. If you wish to override this property, you must do so before making any tracking calls.
  
-	R1Emitter.getInstance().setApplicationName("customApplicationName");
+    R1Emitter.getInstance().setApplicationName("customApplicationName");
 
 *appId*
 
@@ -174,14 +169,14 @@ The application name associated with emitter. By default, this property is popul
 The application identifier associated with this emitter. By default, this property is null. If you wish to set this property, you must do so before making any tracking calls.
 Note that this is not your app's bundle id (e.g. com.example.appname).
 
-	R1Emitter.getInstance().setApplicationUserId("12345");
+    R1Emitter.getInstance().setApplicationUserId("12345");
 
 *appVersion*
 
 
 The application version associated with this emitter. By default, this property is populated with the android:versionName= string from the application AndroidManifest.xml. If you wish to override this property, you must do so before making any tracking calls.
  
-	R1Emitter.getInstance().setAppVersion("1.0");
+    R1Emitter.getInstance().setAppVersion("1.0");
 
 
 *appScreen*
@@ -189,12 +184,15 @@ The application version associated with this emitter. By default, this property 
 
 The current application screen set for this emitter.
 
-	R1Emitter.getInstance().emitAppScreen("appScreen", "contentDescription", "documentLocationUrl", "documentHostName", "documentPath", parameters);
 
-	where parameters is a HashMap. Example:
+    R1Emitter.getInstance().emitAppScreen("appScreen", "contentDescription", "documentLocationUrl", "documentHostName", "documentPath", parameters);
 
+where parameters is a HashMap. Example:
+
+````
 	private HashMap<String, Object> parameters = new HashMap<String, Object>();
-	parameters.put("key","value");
+	parameters.put("key","value");`
+````
 
 
 *sessionStart*
@@ -202,10 +200,12 @@ The current application screen set for this emitter.
 
 If true, indicates the start of a new session. Note that when a emitter is first instantiated, this is initialized to true. To prevent this default behavior, set sessionTimeout to negative value.
  By itself, setting this does not send any data. If this is true, when the next emitter call is made, a parameter will be added to the resulting emitter information indicating that it is the start of a session, and this flag will be cleared.
-		
-	R1Emitter.getInstance().setSessionStarted(true);
-	// Your code here
-	R1Emitter.getInstance().setSessionStarted(false);
+	
+````
+    R1Emitter.getInstance().setSessionStarted(true);
+    // Your code here
+    R1Emitter.getInstance().setSessionStarted(false);
+````
 
 *sessionTimeout*
 
@@ -213,14 +213,14 @@ If true, indicates the start of a new session. Note that when a emitter is first
 Indicates how long, in seconds, the application must transition to the inactive or background state before the tracker automatically indicates the start of a new session. When this happens and the app becomes active again it will set sessionStart to true. For example, if this is set to 30 seconds, and the user receives a phone call that lasts for 45 seconds while using the app, upon returning to the app, the sessionStart parameter will be set to true. If the phone call instead lasted 10 seconds, sessionStart will not be modified.
 By default, this is 30 seconds.
 
-	R1Emitter.getInstance().setSessionTimeout(30);
+    R1Emitter.getInstance().setSessionTimeout(30);
 
 *applicationUserID*
 
 
 Optional current user identifier.
  
-	R1Emitter.getInstance().setApplicationUserId("12345");
+    R1Emitter.getInstance().setApplicationUserId("12345");
 	
 ### Push Tags
 
@@ -232,16 +232,16 @@ The maximum length of a Tag is 128 characters.
 
 ***Add a new Tag***
 
-	R1Push.getInstance(context).addTag("tag");
+    R1Push.getInstance(context).addTag("tag");
 	
 	
 ***Remove existing Tag***
 
-	R1Push.getInstance(context).removeTag("tag");	
+    R1Push.getInstance(context).removeTag("tag");
 	
 ***Get all Tags***
 	
-	String[] allTags = R1Push.getInstance(context).getTags(context);	
+    String[] allTags = R1Push.getInstance(context).getTags(context);
 
 
 ### Emitter Events
@@ -281,15 +281,19 @@ Note: The last argument in all of the following emitter callbacks, otherInfo, is
 
 A generic user action, such as a button click.
 
-	long value = 12345;
-	R1Emitter.getInstance().emitAction("action", "label", value, parameters);
+````
+    long value = 12345;
+    R1Emitter.getInstance().emitAction("action", "label", value, parameters);
+````
+
 
 **Login**
 
 
 Tracks a user login within the app
 
-	R1Emitter.getInstance().emitLogin( sha1("userId"), "userName", parameters); 
+
+    R1Emitter.getInstance().emitLogin( sha1("userId"), "userName", parameters);
 
 
 **Registration**
@@ -297,16 +301,18 @@ Tracks a user login within the app
 
 Records a user registration within the app
 
-	UserItem userItem = new UserItem();
-	userItem.userId = sha1("userId");
-	userItem.userName = "userName";
-	userItem.email = "user@email.net"
-	userItem.streetAddress = "address";
-	userItem.phone = "123456";
-	userItem.zip = "111111";
-	userItem.city = "City";
-	userItem.state = "State"
-	R1Emitter.getInstance().emitRegistration(userItem, parameters);
+````
+    UserItem userItem = new UserItem();
+    userItem.userId = sha1("userId");
+    userItem.userName = "userName";
+    userItem.email = "user@email.net";
+    userItem.streetAddress = "address";
+    userItem.phone = "123456";
+    userItem.zip = "111111";
+    userItem.city = "City";
+    userItem.state = "State"
+    R1Emitter.getInstance().emitRegistration(userItem, parameters);
+````
 
 
 **Facebook Connect**
@@ -314,23 +320,26 @@ Records a user registration within the app
 
 Allows access to Facebook services
 
-	R1Emitter.getInstance().emitFBConnect( sha1( "userId" ), "userName", permissions, parameters);
+    R1Emitter.getInstance().emitFBConnect( sha1( "userId" ), "userName", permissions, parameters);
 
 where permissions is a List of R1SocialPermissions:
 
-	ArrayList<R1SocialPermission> socialPermissions = new ArrayList<R1SocialPermission>();
-	socialPermissions.add( new R1SocialPermission("permission", true));
-
+````
+    ArrayList<R1SocialPermission> socialPermissions = new ArrayList<R1SocialPermission>();
+    socialPermissions.add( new R1SocialPermission("permission", true));
+````
 
 **Twitter Connect**
 
 
 Allows access to Twitter services
 
-	R1Emitter.getInstance().emitTConnect( sha1( "userId" ),
-	“username”, permissions, parameters);
-				permissions:permissions
-				otherInfo:@[“custom_key”:”value”}];
+````
+    R1Emitter.getInstance().emitTConnect( sha1( "userId" ),
+    “username”, permissions, parameters);
+	permissions:permissions
+	otherInfo:@[“custom_key”:”value”}];
+````
 
 
 **Trial Upgrade**
@@ -338,14 +347,13 @@ Allows access to Twitter services
 
 Tracks an application upgrade from a trial version to a full version
 
-	R1Emitter.getInstance().emitTrialUpgrade(parameters);
-
+    R1Emitter.getInstance().emitTrialUpgrade(parameters);
 
 **Screen View**
 
 Basically, a page view, it provides info about that screen
 
-	R1Emitter.getInstance().emitAppScreen("title","description","http://	www.example.com/path”,”example.com”,”path”,parameters);
+    R1Emitter.getInstance().emitAppScreen("title","description","http://	www.example.com/path”,”example.com”,”path”,parameters);`
 
 
 ### E-Commerce Events
@@ -353,70 +361,73 @@ Basically, a page view, it provides info about that screen
 
 **Transaction**
 
-	EmitItem purchaseItem = new EmitItem();
-	purchaseItem.storeId = "storeId";
-	purchaseItem.storeName = "name";
-	purchaseItem.transactionId = "AE3237DAA"
-	purchaseItem.cartId = "ABBCCD"
-	purchaseItem.orderId = "ABCDEF";
-	purchaseItem.totalSale = 3.2f;
-	purchaseItem.currency = "EUR";
-	purchaseItem.shippingCosts = 1.8f;
-	purchaseItem.transactionTax = 2.5f;
-
-	R1Emitter.getInstance().emitTransaction(emitItem, parameters);
+````
+    EmitItem purchaseItem = new EmitItem();
+    purchaseItem.storeId = "storeId";
+    purchaseItem.storeName = "name";
+    purchaseItem.transactionId = "AE3237DAA"
+    purchaseItem.cartId = "ABBCCD"
+    purchaseItem.orderId = "ABCDEF";
+    purchaseItem.totalSale = 3.2f;
+    purchaseItem.currency = "EUR";
+    purchaseItem.shippingCosts = 1.8f;
+    purchaseItem.transactionTax = 2.5f;
+    R1Emitter.getInstance().emitTransaction(emitItem, parameters);
+````
 
 
 **Transaction Item**
 
-	R1EmitterLineItem lineItem = new R1EmitterLineItem();
-
-	lineItem.productId = "productId";
-	lineItem.productName = "productName";
-	lineItem.quantity = 5;
-	lineItem.unitOfMeasure = "parts";
-	lineItem.msrPrice = 1.3f;
-	lineItem.pricePaid = 3.4f;
-	lineItem.currency = "EUR;
-	lineItem.itemCategory = "items";
-	R1Emitter.getInstance().emitTransactionItem("transactionItemId", lineItem, 	parameters) {
+````
+    R1EmitterLineItem lineItem = new R1EmitterLineItem();
+    lineItem.productId = "productId";
+    lineItem.productName = "productName";
+    lineItem.quantity = 5;
+    lineItem.unitOfMeasure = "parts";
+    lineItem.msrPrice = 1.3f;
+    lineItem.pricePaid = 3.4f;
+    lineItem.currency = "EUR;
+    lineItem.itemCategory = "items";
+    R1Emitter.getInstance().emitTransactionItem("transactionItemId", lineItem, 	parameters) {
+````
 
 **Create Cart**
 
-	R1Emitter.getInstance().emitCartCreate("cartId", parameters);
+    R1Emitter.getInstance().emitCartCreate("cartId", parameters);
 
 **Delete Cart**
 
-	R1Emitter.getInstance().emitCartDelete("cartId", parameters); 
+    R1Emitter.getInstance().emitCartDelete("cartId", parameters);
 
 
 **Add To Cart**
 
-
-	R1EmitterLineItem lineItem = new R1EmitterLineItem();
-	lineItem.productId = "productId";
-	lineItem.productName = "productName";
-	lineItem.quantity = 5;
-	lineItem.unitOfMeasure = "parts";
-	lineItem.msrPrice = 1.3f;
-	lineItem.pricePaid = 3.4f;
-	lineItem.currency = "EUR;
-	lineItem.itemCategory = "items";
-	R1Emitter.getInstance().emitAddToCart("cartId", lineItem, parameters);
+````
+    R1EmitterLineItem lineItem = new R1EmitterLineItem();
+    lineItem.productId = "productId";
+    lineItem.productName = "productName";
+    lineItem.quantity = 5;
+    lineItem.unitOfMeasure = "parts";
+    lineItem.msrPrice = 1.3f;
+    lineItem.pricePaid = 3.4f;
+    lineItem.currency = "EUR;
+    lineItem.itemCategory = "items";
+    R1Emitter.getInstance().emitAddToCart("cartId", lineItem, parameters);
+````
 
 **Delete From Cart**
 
-
-	R1EmitterLineItem lineItem = new R1EmitterLineItem();
-	lineItem.productId = "productId";
-	lineItem.productName = "productName";
-	lineItem.quantity = 5;
-	lineItem.unitOfMeasure = "parts";
-	lineItem.msrPrice = 1.3f;
-	lineItem.pricePaid = 3.4f;
-	lineItem.currency = "EUR;
-	lineItem.itemCategory = "items";
-	R1Emitter.getInstance().emitRemoveFromCart("cartId", lineItem, parameters);
+````
+    R1EmitterLineItem lineItem = new R1EmitterLineItem();
+    lineItem.productId = "productId";
+    lineItem.productName = "productName";
+    lineItem.quantity = 5;
+    lineItem.unitOfMeasure = "parts";
+    lineItem.msrPrice = 1.3f;
+    lineItem.pricePaid = 3.4f;
+    lineItem.currency = "EUR;
+    lineItem.itemCategory = "items";
+    R1Emitter.getInstance().emitRemoveFromCart("cartId", lineItem, parameters);
 
 **Custom Events**
 
@@ -424,14 +435,12 @@ With custom events you have the ability to create and track specific events that
 
 To include tracking of custom events for the mobile app, the following callbacks need to be included in the application code.
 
-	// Emits a custom event without parameters
-	R1Emitter.getInstance().emitEvent("Your custom event name");
-	// Emits a custom event with parameters
-	private HashMap<String, Object> parameters = new HashMap<String, Object>();
-
-	parameters.put("key","value");
-	R1Emitter.getInstance().emitEvent("Your custom event name", parameters);
- 
-
-
-
+````
+    // Emits a custom event without parameters
+    R1Emitter.getInstance().emitEvent("Your custom event name");
+    // Emits a custom event with parameters
+    private HashMap<String, Object> parameters = new HashMap<String, Object>();
+    
+    parameters.put("key","value");
+    R1Emitter.getInstance().emitEvent("Your custom event name", parameters);
+ ````
