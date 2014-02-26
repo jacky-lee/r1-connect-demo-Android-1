@@ -243,10 +243,10 @@ where permissions is a List of R1SocialPermissions:
 
 *Twitter Connect* - Allows access to Twitter services
 
+    HashMap<String, Object> parameters = new HashMap<String, Object>();
+    parameters.put("custom_key","value");
     R1Emitter.getInstance().emitTConnect( sha1( "userId" ),
     “username”, permissions, parameters);
-    permissions:permissions
-    otherInfo:@[“custom_key”:”value”}];
 
 *Trial Upgrade* - Tracks an application upgrade from a trial version to a full version
 
