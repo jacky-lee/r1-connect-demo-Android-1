@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.radiumone.emitter.R1Emitter;
+import com.radiumone.emitter.utils.Utils;
 import com.radiumone.sdk.R;
 
 import java.util.Set;

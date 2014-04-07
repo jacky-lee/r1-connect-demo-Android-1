@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import com.radiumone.emitter.R1Emitter;
 import com.radiumone.sdk.R;
 
 public class SelectEventActivity extends Activity implements OnClickListener {
@@ -30,34 +31,47 @@ public class SelectEventActivity extends Activity implements OnClickListener {
 		}else if ( id == R.id.button3 ){
 			intentType = EmitEventActivity.Type.LOGIN;
 		}else if ( id == R.id.button4 ){
-			intentType = EmitEventActivity.Type.REGISTRATION;
+			intentType = EmitEventActivity.Type.USER_INFO;
 		}else if ( id == R.id.button5 ){
+            intentType = EmitEventActivity.Type.REGISTRATION;
+        }else if ( id == R.id.button6 ){
 			intentType = EmitEventActivity.Type.FB_CONNECT;
-		}else if ( id == R.id.button6 ){
-			intentType = EmitEventActivity.Type.T_CONNECT;
 		}else if ( id == R.id.button7 ){
-			intentType = EmitEventActivity.Type.TRANSACTION;
+			intentType = EmitEventActivity.Type.T_CONNECT;
 		}else if ( id == R.id.button8 ){
+			intentType = EmitEventActivity.Type.TRANSACTION;
+		}else if ( id == R.id.button9 ){
             intentType = EmitEventActivity.Type.TRANSACTION_ITEM;
-        }else if ( id == R.id.button9 ){
+        }else if ( id == R.id.button10 ){
 			intentType = EmitEventActivity.Type.CART_CREATE;
-		}else if ( id == R.id.button10 ){
-			intentType = EmitEventActivity.Type.CART_DELETE;
 		}else if ( id == R.id.button11 ){
-			intentType = EmitEventActivity.Type.ADD_TO_CART;
+			intentType = EmitEventActivity.Type.CART_DELETE;
 		}else if ( id == R.id.button12 ){
-			intentType = EmitEventActivity.Type.DELETE_FROM_CART;
+			intentType = EmitEventActivity.Type.ADD_TO_CART;
 		}else if ( id == R.id.button13 ){
+			intentType = EmitEventActivity.Type.DELETE_FROM_CART;
+		}else if ( id == R.id.button14 ){
             intentType = EmitEventActivity.Type.ACTION_EVENT;
-        }else if ( id == R.id.button14 ){
-            intentType = EmitEventActivity.Type.UPGRADE;
         }else if ( id == R.id.button15 ){
-            intentType = EmitEventActivity.Type.TRIAL_UPGRADE;
+            intentType = EmitEventActivity.Type.UPGRADE;
         }else if ( id == R.id.button16 ){
+            intentType = EmitEventActivity.Type.TRIAL_UPGRADE;
+        }else if ( id == R.id.button17 ){
             intentType = EmitEventActivity.Type.APP_SCREEN;
         }
 		eventIntent.putExtra("type", intentType);
 		startActivity(eventIntent);
 	}
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        R1Emitter.getInstance().onStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        R1Emitter.getInstance().onStop(this);
+    }
 }

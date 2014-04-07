@@ -30,7 +30,7 @@ public class PropertiesSettings extends Activity implements View.OnClickListener
 
         SharedPreferences prefs = getSharedPreferences(AppPreference.PREF_NAME, MODE_PRIVATE);
         if ( emitterIdEditText != null ){
-            emitterIdEditText.setText(R1Emitter.getInstance().getEmitterId(this));
+            emitterIdEditText.setText(R1Emitter.getInstance().getApplicationId(this));
         }
         if ( appVersioneditText != null ){
             appVersioneditText.setText(prefs.getString(AppPreference.APP_VERSION, AppPreference.DEFAULT_VERSION));

@@ -92,6 +92,7 @@ public class R1PushTest extends Activity {
     }
 
     private void startTest(String senderId, String clientId, String appId) {
+        // this for testing only. Use r1connect.properties
         R1PushConfig.getInstance(R1PushTest.this).setCredentials(this, appId, clientId, false);
         R1PushConfig.getInstance(R1PushTest.this).setSenderId(senderId, false);
         final Intent intent = new Intent(R1PushTest.this, R1PushPreferencesActivity.class);

@@ -5,8 +5,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dip" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -19,16 +20,16 @@
             android:layout_height="wrap_content"
             android:editable="false"
             android:ems="10"
-            android:text="App Screen" >
+            android:text="User Info" >
         </EditText>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="App Screen" />
+            android:text="User Id" />
 
         <EditText
-            android:id="@+id/event_name_edit_text"
+            android:id="@+id/user_id_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10" >
@@ -39,57 +40,109 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Content Description" />
+            android:text="User Name" />
 
         <EditText
-            android:id="@+id/content_description_edit_text"
+            android:id="@+id/user_name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10" >
-
-            <requestFocus />
         </EditText>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Document Location URL" />
+            android:text="Email" />
 
         <EditText
-            android:id="@+id/document_location_url_edit_text"
+            android:id="@+id/email_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10" >
-
-            <requestFocus />
         </EditText>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Document Host Name" />
+            android:text="First Name" />
 
         <EditText
-            android:id="@+id/document_host_name_edit_text"
+            android:id="@+id/first_name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10" >
-
-            <requestFocus />
         </EditText>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Document Path" />
+            android:text="Last Name" />
 
         <EditText
-            android:id="@+id/document_path_edit_text"
+            android:id="@+id/last_name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10" >
+        </EditText>
 
-            <requestFocus />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Street Address" />
+
+        <EditText
+            android:id="@+id/street_address_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" >
+        </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone" />
+
+        <EditText
+            android:id="@+id/phone_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" >
+        </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="State" />
+
+        <EditText
+            android:id="@+id/state_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" >
+        </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City" />
+
+        <EditText
+            android:id="@+id/city_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" >
+        </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zip" />
+
+        <EditText
+            android:id="@+id/zip_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" >
         </EditText>
 
         <Button
@@ -99,12 +152,6 @@
             android:layout_gravity="center_horizontal"
             android:text="Send" >
         </Button>
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Parameters" />
 
         <LinearLayout
             android:id="@+id/parameters_layout"

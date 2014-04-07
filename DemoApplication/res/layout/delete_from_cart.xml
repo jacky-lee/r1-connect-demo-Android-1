@@ -10,7 +10,6 @@
         android:padding="10dip" >
 
         <TextView
-            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Event Name" />
@@ -25,7 +24,6 @@
         </EditText>
 
         <TextView
-            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cart Id" />
@@ -48,7 +46,6 @@
         </Button>
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Line Items" />
@@ -69,7 +66,6 @@
         </Button>
 
         <TextView
-            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Parameters" />

@@ -6,6 +6,7 @@
     <string name="title_activity_properties_settings">PropertiesSettings</string>
     <string name="title_activity_events">EventsActivity</string>
     <string name="title_activity_property">PropertyActivity</string>
+    <string name="title_activity_social_permission">SocialPermissionActivity</string>
     <string name="title_activity_send_event">SendEventActivity</string>
     <string name="title_activity_emit_event">EmitEventActivity</string>
 

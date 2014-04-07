@@ -161,7 +161,7 @@ public class R1PushPreferencesActivity extends FragmentActivity implements View.
     @Override
     public void onUserIdChanged(final String userId) {
         if (!TextUtils.isEmpty(userId)){
-        	R1Emitter.getInstance().setApplicationUserId(userId);
+            R1Emitter.getInstance().setApplicationUserId(userId);
             SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString(USER_ID, userId);

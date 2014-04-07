@@ -43,20 +43,21 @@ public class EmitEventActivity extends Activity implements OnClickListener{
 		public static final int EVENT = 0;
 		public static final int EVENT_WITH_PARAMETERS = 1;
 		public static final int LOGIN = 2;
-		public static final int REGISTRATION = 3;
-		public static final int FB_CONNECT = 4;
-		public static final int T_CONNECT = 5;
-		public static final int TRANSACTION = 6;
-        public static final int TRANSACTION_ITEM = 7;
-		public static final int CART_CREATE = 8;
-		public static final int CART_DELETE = 9;
-		public static final int ADD_TO_CART = 10;
-		public static final int DELETE_FROM_CART = 11;
-        public static final int APP_SCREEN = 12;
+        public static final int USER_INFO = 3;
+		public static final int REGISTRATION = 4;
+		public static final int FB_CONNECT = 5;
+		public static final int T_CONNECT = 6;
+		public static final int TRANSACTION = 7;
+        public static final int TRANSACTION_ITEM = 8;
+		public static final int CART_CREATE = 9;
+		public static final int CART_DELETE = 10;
+		public static final int ADD_TO_CART = 11;
+		public static final int DELETE_FROM_CART = 12;
+        public static final int APP_SCREEN = 13;
 
-        public static final int ACTION_EVENT = 13;
-        public static final int UPGRADE = 14;
-        public static final int TRIAL_UPGRADE = 15;
+        public static final int ACTION_EVENT = 14;
+        public static final int UPGRADE = 15;
+        public static final int TRIAL_UPGRADE = 16;
 	}
 	
 	@Override
@@ -68,7 +69,7 @@ public class EmitEventActivity extends Activity implements OnClickListener{
         if ( !TextUtils.isEmpty(appUserId)){
             R1Emitter.getInstance().setApplicationUserId(appUserId);
         }
-        if ( TextUtils.isEmpty(R1Emitter.getInstance().getEmitterId(this))){
+        if ( TextUtils.isEmpty(R1Emitter.getInstance().getApplicationId(this))){
             Toast.makeText(this, "No Application ID selected in Emitter Properties", Toast.LENGTH_SHORT).show();
             finish();
             return;
@@ -260,18 +261,18 @@ public class EmitEventActivity extends Activity implements OnClickListener{
 
         if ( eventType == Type.LOGIN ){
 
-            final EditText loginNameEditText = (EditText)findViewById(R.id.login_edit_text);
-            if ( loginNameEditText != null && loginNameEditText.getText() != null ){
-                String userId = loginNameEditText.getText().toString();
+            final EditText userIdEditText = (EditText)findViewById(R.id.user_id_edit_text);
+            if ( userIdEditText != null && userIdEditText.getText() != null ){
+                String userId = userIdEditText.getText().toString();
                 if ( TextUtils.isEmpty(userId)){
-                    loginNameEditText.setText(Util.getRandomString());
+                    userIdEditText.setText(Util.getRandomString());
                 }
             }
-            final EditText passwordNameEditText = (EditText)findViewById(R.id.password_edit_text);
-            if ( passwordNameEditText == null  ){
-                String userName = passwordNameEditText.getText().toString();
+            final EditText userNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
+            if ( userNameEditText != null && userNameEditText.getText() != null){
+                String userName = userNameEditText.getText().toString();
                 if ( TextUtils.isEmpty(userName)){
-                    passwordNameEditText.setText(Util.getRandomString());
+                    userNameEditText.setText(Util.getRandomString());
                 }
             }
         } else if (eventType == Type.ACTION_EVENT){
@@ -291,42 +292,24 @@ public class EmitEventActivity extends Activity implements OnClickListener{
             }
         } else if ( eventType == Type.REGISTRATION ){
 
-            final EditText userIdEditText = (EditText)findViewById(R.id.login_edit_text);
+            final EditText userIdEditText = (EditText)findViewById(R.id.user_id_edit_text);
             if ( userIdEditText != null && userIdEditText.getText() != null ){
                 String id = userIdEditText.getText().toString();
                 if ( TextUtils.isEmpty(id)){
                     userIdEditText.setText(Util.getRandomString());
                 }
             }
-            final EditText userNameEditText = (EditText)findViewById(R.id.password_edit_text);
+            final EditText userNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
             if ( userNameEditText != null ){
                 if (TextUtils.isEmpty(userNameEditText.getText())){
                     userNameEditText.setText(Util.getRandomString());
                 }
             }
 
-            final EditText emailNameEditText = (EditText)findViewById(R.id.email_edit_text);
-            if ( emailNameEditText != null ){
-                if (TextUtils.isEmpty(emailNameEditText.getText())){
-                    emailNameEditText.setText(Util.getRandomString());
-                }
-            }
-            final EditText zipNameEditText = (EditText)findViewById(R.id.zip_edit_text);
-            if ( zipNameEditText != null  ){
-                if (TextUtils.isEmpty(zipNameEditText.getText())){
-                    zipNameEditText.setText(Util.getRandomString());
-                }
-            }
-            final EditText phoneNameEditText = (EditText)findViewById(R.id.phone_edit_text);
-            if ( phoneNameEditText != null  ){
-                if (TextUtils.isEmpty(phoneNameEditText.getText())){
-                    phoneNameEditText.setText(Util.getRandomString());
-                }
-            }
-            final EditText streetNameEditText = (EditText)findViewById(R.id.street_edit_text);
-            if ( streetNameEditText != null  ){
-                if (TextUtils.isEmpty(streetNameEditText.getText())){
-                    streetNameEditText.setText(Util.getRandomString());
+            final EditText countryEditText = (EditText)findViewById(R.id.country_edit_text);
+            if ( countryEditText != null  ){
+                if (TextUtils.isEmpty(countryEditText.getText())){
+                    countryEditText.setText(Util.getRandomString());
                 }
             }
 
@@ -343,26 +326,87 @@ public class EmitEventActivity extends Activity implements OnClickListener{
                     stateEditText.setText(Util.getRandomString());
                 }
             }
+        } else if ( eventType == Type.USER_INFO ){
+
+            final EditText userIdEditText = (EditText)findViewById(R.id.user_id_edit_text);
+            if ( userIdEditText != null && userIdEditText.getText() != null ){
+                String id = userIdEditText.getText().toString();
+                if ( TextUtils.isEmpty(id)){
+                    userIdEditText.setText(Util.getRandomString());
+                }
+            }
+            final EditText userNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
+            if ( userNameEditText != null ){
+                if (TextUtils.isEmpty(userNameEditText.getText())){
+                    userNameEditText.setText(Util.getRandomString());
+                }
+            }
+
+            final EditText firstNameEditText = (EditText)findViewById(R.id.first_name_edit_text);
+            if ( firstNameEditText != null  ){
+                if (TextUtils.isEmpty(firstNameEditText.getText())){
+                    firstNameEditText.setText(Util.getRandomString());
+                }
+            }
+
+            final EditText lastNameEditText = (EditText)findViewById(R.id.last_name_edit_text);
+            if ( lastNameEditText != null  ){
+                if (TextUtils.isEmpty(lastNameEditText.getText())){
+                    lastNameEditText.setText(Util.getRandomString());
+                }
+            }
+
+            final EditText emailEditText = (EditText)findViewById(R.id.email_edit_text);
+            if ( emailEditText != null  ){
+                if (TextUtils.isEmpty(emailEditText.getText())){
+                    emailEditText.setText(Util.getRandomString());
+                }
+            }
+
+            final EditText phoneEditText = (EditText)findViewById(R.id.phone_edit_text);
+            if ( phoneEditText != null  ){
+                if (TextUtils.isEmpty(phoneEditText.getText())){
+                    phoneEditText.setText(""+Util.getRandomLong());
+                }
+            }
+
+            final EditText streetAddressEditText = (EditText)findViewById(R.id.street_address_edit_text);
+            if ( streetAddressEditText != null  ){
+                if (TextUtils.isEmpty(streetAddressEditText.getText())){
+                    streetAddressEditText.setText(Util.getRandomString());
+                }
+            }
+
+            final EditText cityEditText = (EditText)findViewById(R.id.city_edit_text);
+            if ( cityEditText != null  ){
+                if (TextUtils.isEmpty(cityEditText.getText())){
+                    cityEditText.setText(Util.getRandomString());
+                }
+            }
+
+            final EditText stateEditText = (EditText)findViewById(R.id.state_edit_text);
+            if ( stateEditText != null  ){
+                if (TextUtils.isEmpty(stateEditText.getText())){
+                    stateEditText.setText(Util.getRandomString());
+                }
+            }
+
+            final EditText zipEditText = (EditText)findViewById(R.id.zip_edit_text);
+            if ( zipEditText != null  ){
+                if (TextUtils.isEmpty(zipEditText.getText())){
+                    zipEditText.setText(Util.getRandomString());
+                }
+            }
         } else if ( eventType == Type.FB_CONNECT ){
 
-            Emitter.UserItem userItem = new Emitter.UserItem();
-
-            final EditText loginNameEditText = (EditText)findViewById(R.id.login_edit_text);
-            if ( TextUtils.isEmpty(loginNameEditText.getText())){
-                loginNameEditText.setText(Util.getRandomString());
-            }
-            final EditText passwordNameEditText = (EditText)findViewById(R.id.password_edit_text);
-            if ( TextUtils.isEmpty(passwordNameEditText.getText())){
-                passwordNameEditText.setText(Util.getRandomString());
-            }
 
         } else if ( eventType == Type.T_CONNECT ){
 
-            final EditText loginNameEditText = (EditText)findViewById(R.id.login_edit_text);
+            final EditText loginNameEditText = (EditText)findViewById(R.id.user_id_edit_text);
             if ( TextUtils.isEmpty(loginNameEditText.getText())){
                 loginNameEditText.setText(Util.getRandomString());
             }
-            final EditText passwordNameEditText = (EditText)findViewById(R.id.password_edit_text);
+            final EditText passwordNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
             if ( TextUtils.isEmpty(passwordNameEditText.getText())){
                 passwordNameEditText.setText(Util.getRandomString());
             }
@@ -587,7 +631,9 @@ public class EmitEventActivity extends Activity implements OnClickListener{
 			setContentView(R.layout.login);
 		} else if ( eventType == Type.REGISTRATION ){
 			setContentView(R.layout.registration);
-		} else if ( eventType == Type.FB_CONNECT ){
+		} else if ( eventType == Type.USER_INFO ){
+            setContentView(R.layout.user_info);
+        } else if ( eventType == Type.FB_CONNECT ){
 			setContentView(R.layout.fb_connect);
 		} else if ( eventType == Type.T_CONNECT ){
 			setContentView(R.layout.t_connect);
@@ -667,13 +713,13 @@ public class EmitEventActivity extends Activity implements OnClickListener{
                 String userId = null;
                 String userName = null;
 
-                final EditText loginNameEditText = (EditText)findViewById(R.id.login_edit_text);
-                if ( loginNameEditText != null && loginNameEditText.getText() != null ){
-                    userId = loginNameEditText.getText().toString();
+                final EditText userIdEditText = (EditText)findViewById(R.id.user_id_edit_text);
+                if ( userIdEditText != null && userIdEditText.getText() != null ){
+                    userId = userIdEditText.getText().toString();
                 }
-                final EditText passwordNameEditText = (EditText)findViewById(R.id.password_edit_text);
-                if ( passwordNameEditText != null && passwordNameEditText.getText() != null ){
-                    userName = passwordNameEditText.getText().toString();
+                final EditText userNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
+                if ( userNameEditText != null && userNameEditText.getText() != null ){
+                    userName = userNameEditText.getText().toString();
                 }
                 if (!TextUtils.isEmpty(userId) || !TextUtils.isEmpty(userName) ){
                     R1Emitter.getInstance().emitLogin(userId, userName, parameters);
@@ -683,41 +729,24 @@ public class EmitEventActivity extends Activity implements OnClickListener{
                 }
 			} else if ( eventType == Type.REGISTRATION ){
 
-                Emitter.UserItem userItem = new Emitter.UserItem();
+                R1Emitter.UserItem userItem = new R1Emitter.UserItem();
 
-                final EditText userIdEditText = (EditText)findViewById(R.id.login_edit_text);
+                final EditText userIdEditText = (EditText)findViewById(R.id.user_id_edit_text);
                 if ( userIdEditText != null && userIdEditText.getText() != null ){
                     userItem.userId = userIdEditText.getText().toString();
                 }
-                final EditText userNameEditText = (EditText)findViewById(R.id.password_edit_text);
+
+                final EditText userNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
                 if ( userNameEditText != null ){
                     if (!TextUtils.isEmpty(userNameEditText.getText())){
                         userItem.userName = userNameEditText.getText().toString();
                     }
                 }
 
-                final EditText emailNameEditText = (EditText)findViewById(R.id.email_edit_text);
-                if ( emailNameEditText != null ){
-                    if (!TextUtils.isEmpty(emailNameEditText.getText())){
-                        userItem.email = emailNameEditText.getText().toString();
-                    }
-                }
-                final EditText zipNameEditText = (EditText)findViewById(R.id.zip_edit_text);
-                if ( zipNameEditText != null  ){
-                    if (!TextUtils.isEmpty(zipNameEditText.getText())){
-                        userItem.zip = zipNameEditText.getText().toString();
-                    }
-                }
-                final EditText phoneNameEditText = (EditText)findViewById(R.id.phone_edit_text);
-                if ( phoneNameEditText != null  ){
-                    if (!TextUtils.isEmpty(phoneNameEditText.getText())){
-                        userItem.phone = phoneNameEditText.getText().toString();
-                    }
-                }
-                final EditText streetNameEditText = (EditText)findViewById(R.id.street_edit_text);
-                if ( streetNameEditText != null  ){
-                    if (!TextUtils.isEmpty(streetNameEditText.getText())){
-                        userItem.streetAddress = streetNameEditText.getText().toString();
+                final EditText countryEditText = (EditText)findViewById(R.id.country_edit_text);
+                if ( countryEditText != null  ){
+                    if (!TextUtils.isEmpty(countryEditText.getText())){
+                        userItem.country = countryEditText.getText().toString();
                     }
                 }
 
@@ -735,32 +764,95 @@ public class EmitEventActivity extends Activity implements OnClickListener{
                     }
                 }
 
-				R1Emitter.getInstance().emitRegistration(userItem, parameters);
+				R1Emitter.getInstance().emitRegistration(userItem.userId, userItem.userName, userItem.country, userItem.city, userItem.state,parameters);
                 R1Emitter.getInstance().send();
-			} else if ( eventType == Type.FB_CONNECT ){
+			} else if ( eventType == Type.USER_INFO ){
 
-                Emitter.UserItem userItem = new Emitter.UserItem();
+                R1Emitter.UserItem userItem = new R1Emitter.UserItem();
 
-                final EditText loginNameEditText = (EditText)findViewById(R.id.login_edit_text);
-                if ( loginNameEditText != null && loginNameEditText.getText() != null ){
-                    userItem.userId = loginNameEditText.getText().toString();
-                }
-                final EditText passwordNameEditText = (EditText)findViewById(R.id.password_edit_text);
-                if ( passwordNameEditText != null && passwordNameEditText.getText() != null ){
-                    userItem.userName = passwordNameEditText.getText().toString();
+                final EditText userIdEditText = (EditText)findViewById(R.id.user_id_edit_text);
+                if ( userIdEditText != null && userIdEditText.getText() != null ){
+                    userItem.userId = userIdEditText.getText().toString();
                 }
 
-				R1Emitter.getInstance().emitFBConnect(userItem.userId, userItem.userName, socialPermissions, parameters);
+                final EditText userNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
+                if ( userNameEditText != null ){
+                    if (!TextUtils.isEmpty(userNameEditText.getText())){
+                        userItem.userName = userNameEditText.getText().toString();
+                    }
+                }
+
+                final EditText firstNameEditText = (EditText)findViewById(R.id.first_name_edit_text);
+                if ( firstNameEditText != null ){
+                    if (!TextUtils.isEmpty(firstNameEditText.getText())){
+                        userItem.firstName = firstNameEditText.getText().toString();
+                    }
+                }
+
+                final EditText lastNameEditText = (EditText)findViewById(R.id.last_name_edit_text);
+                if ( lastNameEditText != null ){
+                    if (!TextUtils.isEmpty(lastNameEditText.getText())){
+                        userItem.lastName = lastNameEditText.getText().toString();
+                    }
+                }
+
+                final EditText emailEditText = (EditText)findViewById(R.id.email_edit_text);
+                if ( emailEditText != null  ){
+                    if (!TextUtils.isEmpty(emailEditText.getText())){
+                        userItem.email = emailEditText.getText().toString();
+                    }
+                }
+
+                final EditText phoneEditText = (EditText)findViewById(R.id.phone_edit_text);
+                if ( phoneEditText != null  ){
+                    if (!TextUtils.isEmpty(phoneEditText.getText())){
+                        userItem.phone = phoneEditText.getText().toString();
+                    }
+                }
+
+                final EditText streetEditText = (EditText)findViewById(R.id.street_address_edit_text);
+                if ( streetEditText != null  ){
+                    if (!TextUtils.isEmpty(streetEditText.getText())){
+                        userItem.streetAddress = streetEditText.getText().toString();
+                    }
+                }
+
+
+                final EditText stateEditText = (EditText)findViewById(R.id.state_edit_text);
+                if ( stateEditText != null  ){
+                    if (!TextUtils.isEmpty(stateEditText.getText())){
+                        userItem.state = stateEditText.getText().toString();
+                    }
+                }
+
+                final EditText cityEditText = (EditText)findViewById(R.id.city_edit_text);
+                if ( cityEditText != null  ){
+                    if (!TextUtils.isEmpty(cityEditText.getText())){
+                        userItem.city = cityEditText.getText().toString();
+                    }
+                }
+
+                final EditText zipEditText = (EditText)findViewById(R.id.zip_edit_text);
+                if ( zipEditText != null  ){
+                    if (!TextUtils.isEmpty(zipEditText.getText())){
+                        userItem.zip = zipEditText.getText().toString();
+                    }
+                }
+
+                R1Emitter.getInstance().emitUserInfo(userItem ,parameters);
+                R1Emitter.getInstance().send();
+            } else if ( eventType == Type.FB_CONNECT ){
+				R1Emitter.getInstance().emitFBConnect(socialPermissions, parameters);
                 R1Emitter.getInstance().send();
 			} else if ( eventType == Type.T_CONNECT ){
 
-                Emitter.UserItem userItem = new Emitter.UserItem();
+                R1Emitter.UserItem userItem = new R1Emitter.UserItem();
 
-                final EditText loginNameEditText = (EditText)findViewById(R.id.login_edit_text);
+                final EditText loginNameEditText = (EditText)findViewById(R.id.user_id_edit_text);
                 if ( loginNameEditText != null && loginNameEditText.getText() != null ){
                     userItem.userId = loginNameEditText.getText().toString();
                 }
-                final EditText passwordNameEditText = (EditText)findViewById(R.id.password_edit_text);
+                final EditText passwordNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
                 if ( passwordNameEditText != null && passwordNameEditText.getText() != null ){
                     userItem.userName = passwordNameEditText.getText().toString();
                 }
@@ -768,7 +860,7 @@ public class EmitEventActivity extends Activity implements OnClickListener{
 				R1Emitter.getInstance().emitTConnect(userItem.userId, userItem.userName, socialPermissions, parameters);
                 R1Emitter.getInstance().send();
 			} else if ( eventType == Type.TRANSACTION ){
-                Emitter.EmitItem purchaseItem = new Emitter.EmitItem();
+                R1Emitter.EmitItem purchaseItem = new R1Emitter.EmitItem();
 
                 EditText storeIdEditText = (EditText)findViewById(R.id.store_id_edit_text);
                 if ( storeIdEditText != null ){
@@ -893,7 +985,7 @@ public class EmitEventActivity extends Activity implements OnClickListener{
                 R1Emitter.getInstance().emitTransactionItem(transactionId, lineItem, parameters);
                 R1Emitter.getInstance().send();
             } else if ( eventType == Type.CART_CREATE ){
-                Emitter.EmitItem cartItem = new Emitter.EmitItem();
+                R1Emitter.EmitItem cartItem = new R1Emitter.EmitItem();
 
                 EditText storeIdEditText = (EditText)findViewById(R.id.cart_id_edit_text);
                 if ( storeIdEditText != null ){

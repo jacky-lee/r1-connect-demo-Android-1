@@ -6,12 +6,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="5dip" >
 
         <TextView
-            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dip"
@@ -39,83 +38,88 @@
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emit Registration Event" />
+            android:text="Emit User Info" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emit FBConnect Event" />
+            android:text="Emit Registration Event" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emit TConnect Event" />
+            android:text="Emit FBConnect Event" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emit Transaction Event" />
+            android:text="Emit TConnect Event" />
 
         <Button
             android:id="@+id/button8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emit Transaction Item Event" />
+            android:text="Emit Transaction Event" />
 
         <Button
             android:id="@+id/button9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emit Cart Create Event" />
+            android:text="Emit Transaction Item Event" />
 
         <Button
             android:id="@+id/button10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emit Cart Delete Event" />
+            android:text="Emit Cart Create Event" />
 
         <Button
             android:id="@+id/button11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emit Cart Add event" />
+            android:text="Emit Cart Delete Event" />
 
         <Button
             android:id="@+id/button12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emit Cart Remove event" />
+            android:text="Emit Cart Add event" />
 
         <Button
             android:id="@+id/button13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Action Event" />
+            android:text="Emit Cart Remove event" />
 
         <Button
             android:id="@+id/button14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Upgrade" />
+            android:text="Action Event" />
 
         <Button
             android:id="@+id/button15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Upgrade" />
+
+        <Button
+            android:id="@+id/button16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Trial Upgrade" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dip"
             android:text="Properties" />
 
         <Button
-            android:id="@+id/button16"
+            android:id="@+id/button17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Screen View" />
